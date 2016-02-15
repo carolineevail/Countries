@@ -1,12 +1,33 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Countries {
-    public static void main(String[] args) throws IOException {
+    public static HashMap<String, ArrayList<Country>> alphabeticalCountries = new HashMap<String, ArrayList<Country>>();
+
+    public static void main(String[] args) throws Exception {
         readFile("countries.txt");
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Please enter a letter to produce a list of country names beginning with that letter.");
+        String selectedLetter = userInput.nextLine().toLowerCase().trim();
+        if (selectedLetter.equals("")) {
+            throw new Exception();
+        }
+        ArrayList<Country> usersCountries = alphabeticalCountries.get(selectedLetter);
+        printArrayList(usersCountries);
+        String fileName = selectedLetter + "_countries.txt";
+        writeFile(fileName,arrayListToString(usersCountries));
+
+    }
+
+    static void printArrayList(ArrayList<Country> countriesToPrint) {
+        for (int i = 0; i < countriesToPrint.size(); i++) {
+            System.out.println(countriesToPrint.get(i));
+        }
 
     }
 
@@ -17,16 +38,65 @@ public class Countries {
         fw.close();
     }
 
+    static String arrayListToString (ArrayList<Country> countries) {
+        StringBuilder resultingString = new StringBuilder();
+        for (int i = 0; i < countries.size(); i++) {
+            resultingString.append(countries.get(i));
+            resultingString.append("\n");
+        }
+        return resultingString.toString();
+    }
+
     static void readFile(String fileName) throws IOException {
         File f = new File(fileName);
 
         Scanner scanner = new Scanner(f);
 
         //to read line-by-line, do the following
-        HashMap alphabeticalCountries
+
+        alphabeticalCountries.put("a", new ArrayList<Country>());
+        alphabeticalCountries.put("b", new ArrayList<Country>());
+        alphabeticalCountries.put("c", new ArrayList<Country>());
+        alphabeticalCountries.put("d", new ArrayList<Country>());
+        alphabeticalCountries.put("e", new ArrayList<Country>());
+        alphabeticalCountries.put("f", new ArrayList<Country>());
+        alphabeticalCountries.put("g", new ArrayList<Country>());
+        alphabeticalCountries.put("h", new ArrayList<Country>());
+        alphabeticalCountries.put("i", new ArrayList<Country>());
+        alphabeticalCountries.put("j", new ArrayList<Country>());
+        alphabeticalCountries.put("k", new ArrayList<Country>());
+        alphabeticalCountries.put("l", new ArrayList<Country>());
+        alphabeticalCountries.put("m", new ArrayList<Country>());
+        alphabeticalCountries.put("n", new ArrayList<Country>());
+        alphabeticalCountries.put("o", new ArrayList<Country>());
+        alphabeticalCountries.put("p", new ArrayList<Country>());
+        alphabeticalCountries.put("q", new ArrayList<Country>());
+        alphabeticalCountries.put("r", new ArrayList<Country>());
+        alphabeticalCountries.put("s", new ArrayList<Country>());
+        alphabeticalCountries.put("t", new ArrayList<Country>());
+        alphabeticalCountries.put("u", new ArrayList<Country>());
+        alphabeticalCountries.put("v", new ArrayList<Country>());
+        alphabeticalCountries.put("w", new ArrayList<Country>());
+        alphabeticalCountries.put("x", new ArrayList<Country>());
+        alphabeticalCountries.put("y", new ArrayList<Country>());
+        alphabeticalCountries.put("z", new ArrayList<Country>());
+
+
         while (scanner.hasNext()) {
+            String totalLine = scanner.nextLine();
+            String countryName = totalLine.substring(3);
+            String countryPrefix = totalLine.substring(0,2);
+            Country country = new Country(countryName, countryPrefix);
+            alphabeticalCountries.get(countryName.substring(0, 1)).add(country);
 
         }
+
+        //for (int i = 0; alphabeticalCountries.size() > i; i++); {
+            //System.out.println(alphabeticalCountries);
+
+        //}
+
+
     }
 
 

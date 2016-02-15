@@ -1,0 +1,15 @@
+Country{countryName='afghanistan', countryAbbreviation='AF'}
+Country{countryName='albania', countryAbbreviation='AL'}
+Country{countryName='algeria', countryAbbreviation='DZ'}
+Country{countryName='american samoa', countryAbbreviation='AS'}
+Country{countryName='andorra', countryAbbreviation='AD'}
+Country{countryName='angola', countryAbbreviation='AO'}
+Country{countryName='anguilla', countryAbbreviation='AI'}
+Country{countryName='antarctica', countryAbbreviation='AQ'}
+Country{countryName='antigua and barbuda', countryAbbreviation='AG'}
+Country{countryName='argentina', countryAbbreviation='AR'}
+Country{countryName='armenia', countryAbbreviation='AM'}
+Country{countryName='aruba', countryAbbreviation='AW'}
+Country{countryName='australia', countryAbbreviation='AU'}
+Country{countryName='austria', countryAbbreviation='AT'}
+Country{countryName='azerbaijan', countryAbbreviation='AZ'}
