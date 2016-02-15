@@ -52,9 +52,9 @@ public class Countries {
 
         Scanner scanner = new Scanner(f);
 
-        //to read line-by-line, do the following
 
-        alphabeticalCountries.put("a", new ArrayList<Country>());
+
+        /*alphabeticalCountries.put("a", new ArrayList<Country>());
         alphabeticalCountries.put("b", new ArrayList<Country>());
         alphabeticalCountries.put("c", new ArrayList<Country>());
         alphabeticalCountries.put("d", new ArrayList<Country>());
@@ -79,7 +79,7 @@ public class Countries {
         alphabeticalCountries.put("w", new ArrayList<Country>());
         alphabeticalCountries.put("x", new ArrayList<Country>());
         alphabeticalCountries.put("y", new ArrayList<Country>());
-        alphabeticalCountries.put("z", new ArrayList<Country>());
+        alphabeticalCountries.put("z", new ArrayList<Country>());*/
 
 
         while (scanner.hasNext()) {
@@ -87,7 +87,14 @@ public class Countries {
             String countryName = totalLine.substring(3);
             String countryPrefix = totalLine.substring(0,2);
             Country country = new Country(countryName, countryPrefix);
-            alphabeticalCountries.get(countryName.substring(0, 1)).add(country);
+            //alphabeticalCountries.get(countryName.substring(0, 1)).add(country);
+            String firstLetter = String.valueOf(countryName.charAt(0));
+            ArrayList<Country> list = alphabeticalCountries.get(firstLetter);
+            if (list == null) {
+                list = new ArrayList<>();
+                alphabeticalCountries.put(firstLetter, list);
+            }
+            list.add(country);
 
         }
 
